@@ -8,10 +8,7 @@ public class Main {
         String primer = in.nextLine();
         String newPrimer = primer.replaceAll(" ", ""); //удаляем лишние пробелы
         String[] parts = newPrimer.split("[+-/*]");
-        if (parts.length != 2) throw new Exception("Должно быть два целых числа");
-        String oper = detectOperation(newPrimer);
-        if (oper == null)
-            throw new Exception("Неподдерживаемая математическая операция");// разделяем строку на подстроки
+        if (parts.length != 2) throw new Exception("ошибка");
         String part1 = parts[0];
         String part2 = parts[1];
         int num1 = Integer.parseInt(part1);//переводим строку в число
@@ -37,17 +34,5 @@ public class Main {
     }
 
     //System.out.println(primer);
-    static String detectOperation(String expression) {
-        String a;
-        if (expression.contains("+"))
-            a = "+";
-        else if (expression.contains("-"))
-            a = "-";
-        else if (expression.contains("*"))
-            a = "*";
-        else if (expression.contains("/"))
-            a = "/";
-        else return null;
-        return a;
-    }
+
 }
